@@ -1,0 +1,60 @@
+{
+  "name": "@rootminus/logging-sdk",
+  "version": "1.0.0",
+  "description": "A reusable logging SDK for Node.js backend and frontend applications built on Pino.",
+   "keywords": [
+    "logger",
+    "logging",
+    "pino",
+    "typescript",
+    "nodejs",
+    "fastify",
+    "axios",
+    "microservices"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./backend": {
+      "types": "./dist/backend/index.d.ts",
+      "import": "./dist/backend/index.js",
+      "require": "./dist/backend/index.js"
+    },
+    "./frontend": {
+      "types": "./dist/frontend/index.d.ts",
+      "import": "./dist/frontend/index.js",
+      "require": "./dist/frontend/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "type-check": "tsc --noEmit",
+    "test": "vitest",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
+  },
+  "author": "Root Minus One",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "pino-abstract-transport": "^3.0.0",
+    "pino": "^9.6.0",
+    "axios": "^1.9.0",
+    "fastify": "^5.3.2"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.3",
+    "typescript": "^5.9.3"
+
+  }
+}
