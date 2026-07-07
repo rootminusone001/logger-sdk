@@ -1,6 +1,6 @@
 {
   "name": "@rootminus/logging-sdk",
-  "version": "1.0.4",
+  "version": "0.0.1",
   "description": "A reusable logging SDK for Node.js backend and frontend applications built on Pino.",
    "keywords": [
     "logger",
