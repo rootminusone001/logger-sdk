@@ -1,6 +1,6 @@
 {
   "name": "@rootminus/logging-sdk",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "A reusable logging SDK for Node.js backend and frontend applications built on Pino.",
    "keywords": [
     "logger",
@@ -14,6 +14,9 @@
   ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "engines": {
+    "node": ">=18"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -31,6 +34,16 @@
       "require": "./dist/frontend/index.js"
     }
   },
+  "typesVersions": {
+    "*": {
+      "backend": [
+        "dist/backend/index.d.ts"
+      ],
+      "frontend": [
+        "dist/frontend/index.d.ts"
+      ]
+    }
+  },
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
@@ -41,6 +54,10 @@
   },
   "author": "Root Minus One",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rootminusone001/logger-sdk"
+  },
   "files": [
     "dist",
     "README.md",
@@ -55,6 +72,5 @@
   "devDependencies": {
     "@types/node": "^25.9.3",
     "typescript": "^5.9.3"
-
   }
 }
