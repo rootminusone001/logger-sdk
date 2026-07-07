@@ -19,12 +19,11 @@ export function createLoggerConfig({
       "Logger service is required"
     );
   }
-  const path = require.resolve("./transporter.js");
-console.log("Resolved transporter path:", path);
+const transporterPath = path.join(__dirname, "transporter.js");
   return {
     level: LOG_LEVEL,
     transport: {
-      target: path,
+      target: transporterPath,
       options: {
         baseUrl,
         service,
