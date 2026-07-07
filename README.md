@@ -25,13 +25,15 @@ commmit dist/ folder
 
 Add the SDK dependency to your `package.json`.
 
+Make the pino,pino abstarct,@rootminus/logging-sdk and thread-stream as external dependencies in your build script:
 ```json
 {
-  "dependencies": {
-    "@spear-logger/logging-sdk": "git+ssh://git@bitbucket.org/abtech2024/spear-loggingsdk.git#development"
-  }
+    "scripts": {
+        "type-check": "tsc --noEmit",
+        "dev": "ts-node-dev --respawn --transpile-only -r tsconfig-paths/register src/app.ts",
+        "build": "esbuild src/app.ts --bundle --platform=node --target=node18 --outfile=dist/app.cjs --external:fsevents --external:@rootminus/logging-sdk --external:pino --external:thread-stream --external:pino-abstract-transport"
+    }
 }
-```
 
 Install dependencies:
 
@@ -70,7 +72,7 @@ This will fetch the latest code from the configured Git branch.
 In your `server.ts` file:
 
 ```ts
-import { createLoggerConfig } from "@spear-logger/logging-sdk";
+import { createLoggerConfig } from "@rootminus/logging-sdk/backend";
 
 const server = fastify({
   logger: createLoggerConfig({
@@ -93,7 +95,7 @@ const server = fastify({
 Use the `logError` helper inside your service or controller files.
 
 ```ts
-import { logError } from "@spear-logger/logging-sdk";
+import { logError } from "@rootminus/logging-sdk/backend";
 
 try {
   // Business logic
@@ -116,7 +118,7 @@ The frontend logger supports batching to reduce the number of API calls sent to 
 ## Step 1: Initialize Logger
 
 ```ts
-import { FrontendLogger } from "@spear-logger/logging-sdk";
+import { FrontendLogger } from "@rootminus/logging-sdk/frontend";
 
 const logger = new FrontendLogger({
   endpoint: config.logBaseUrl,
