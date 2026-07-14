@@ -1,6 +1,6 @@
 import type { LogEventInput, SystemLoggerOptions, DeviceInfo } from "../utils/types";
 import { FLUSH_INTERVALS_MS, FRONTEND_LOG_BATCH_SIZE, FRONTEND, BACKEND } from "../constants";
-import { createBatchHttpClient } from "./system-logger-http-client";
+import { createBatchHttpClient } from "./frontend-http-client";
 
 
 
